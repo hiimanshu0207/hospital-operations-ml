@@ -39,11 +39,16 @@
 
 ## Phase 2: ML Models (Days 4–8)
 
-### Day 4 — Patient Demand Analysis
-- [ ] Feature engineering for patient arrival data
-- [ ] Time-series decomposition of demand patterns
-- [ ] Visualization of demand trends
-- [ ] API endpoint for demand analytics
+### Day 4 — Patient Demand Forecasting ✅ (2026-10-24)
+- [x] Continuous hourly department arrival aggregation with zero-fill (1,680 series rows across 14 days)
+- [x] Time-series audit, temporal ordering validation, and dataset limitation documentation
+- [x] Strict chronological train/validation/test partitions without lookahead leakage
+- [x] Baseline implementations: Historical Department Mean and Seasonal Hour Baseline
+- [x] Scikit-learn regression models trained and evaluated: Ridge, HistGradientBoosting, RandomForest
+- [x] Honest evaluation reporting: Seasonal Hour Baseline best Test MAE (0.415), Ridge/RF lowest Test RMSE (0.618)
+- [x] Model bundle serialization (`ml/models/demand_forecast_model.joblib`) and metadata documentation (`ml/models/demand_model_metadata.json`)
+- [x] REST endpoint `POST /api/v1/predictions/demand` with dynamic Poisson confidence bounds, validation, and simulation disclaimer
+- [x] Automated test suite expanded to 53 passing tests (unit, ML validation, and prediction API)
 
 ### Day 5 — Waiting Time Prediction
 - [ ] Train regression model for waiting-time estimation

@@ -12,6 +12,13 @@ from ml.features import (
 )
 from ml.audit_dataset import run_dataset_audit
 from ml.eda import run_eda
+from ml.demand_forecast import (
+    build_continuous_hourly_demand_series,
+    create_demand_features,
+    chronological_split,
+    train_and_evaluate_demand_models,
+    predict_future_demand,
+)
 
 __all__ = [
     "HospitalFeaturePipeline",
@@ -22,4 +29,9 @@ __all__ = [
     "PROHIBITED_LEAKAGE_COLUMNS",
     "run_dataset_audit",
     "run_eda",
+    "build_continuous_hourly_demand_series",
+    "create_demand_features",
+    "chronological_split",
+    "train_and_evaluate_demand_models",
+    "predict_future_demand",
 ]

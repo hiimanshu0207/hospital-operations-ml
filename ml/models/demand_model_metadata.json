@@ -1,0 +1,72 @@
+{
+  "model_type": "patient_demand_forecasting",
+  "version": "1.0.0",
+  "algorithm": "SeasonalHourBaseline",
+  "trained_at": "2026-10-24T10:16:39.579713+00:00",
+  "evaluation_metrics": {
+    "DeptMeanBaseline": {
+      "val_mae": 0.476,
+      "val_rmse": 0.682,
+      "test_mae": 0.446,
+      "test_rmse": 0.635
+    },
+    "SeasonalHourBaseline": {
+      "val_mae": 0.44,
+      "val_rmse": 0.66,
+      "test_mae": 0.415,
+      "test_rmse": 0.631
+    },
+    "RidgeRegression": {
+      "val_mae": 0.448,
+      "val_rmse": 0.672,
+      "test_mae": 0.437,
+      "test_rmse": 0.618
+    },
+    "HistGradientBoosting": {
+      "val_mae": 0.426,
+      "val_rmse": 0.663,
+      "test_mae": 0.457,
+      "test_rmse": 0.676
+    },
+    "RandomForest": {
+      "val_mae": 0.44,
+      "val_rmse": 0.663,
+      "test_mae": 0.433,
+      "test_rmse": 0.618
+    }
+  },
+  "features": [
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "is_night_shift",
+    "is_peak_hours",
+    "sin_hour",
+    "cos_hour",
+    "sin_day",
+    "cos_day",
+    "total_beds",
+    "target_nurse_to_patient_ratio",
+    "dept_ED",
+    "dept_ICU",
+    "dept_GEN",
+    "dept_SURG",
+    "dept_PED",
+    "lag_24h",
+    "lag_48h",
+    "rolling_mean_24h",
+    "rolling_max_24h"
+  ],
+  "training_scope": "14-day synthetic dataset, 600 total encounters",
+  "limitations": [
+    "Trained on 600 simulated encounters (14 days); not for real clinical deployment.",
+    "Hourly arrivals are low-count integers (0-5 per hour); Poisson noise dominates individual hours.",
+    "Forecasting horizon assumes continuous operational regime without external disruption."
+  ],
+  "reproducibility": {
+    "random_seed": 42,
+    "train_split": "Days 3-10 (8 days)",
+    "validation_split": "Days 11-12 (2 days)",
+    "test_split": "Days 13-14 (2 days)"
+  }
+}

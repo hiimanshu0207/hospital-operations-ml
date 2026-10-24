@@ -26,6 +26,11 @@ from app.schemas.patient_visit import (
     PatientVisitResponse,
     PatientVisitSummary,
 )
+from app.schemas.prediction import (
+    DemandForecastRequest,
+    HourlyForecast,
+    DemandForecastResponse,
+)
 
 __all__ = [
     "DepartmentBase",
@@ -44,4 +49,7 @@ __all__ = [
     "PatientVisitUpdate",
     "PatientVisitResponse",
     "PatientVisitSummary",
+    "DemandForecastRequest",
+    "HourlyForecast",
+    "DemandForecastResponse",
 ]
