@@ -13,8 +13,11 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 from fastapi.testclient import TestClient
 
-# Ensure backend root is on sys.path
-backend_path = Path(__file__).resolve().parent.parent / "backend"
+# Ensure backend and project root are on sys.path
+project_root = Path(__file__).resolve().parent.parent
+backend_path = project_root / "backend"
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 if str(backend_path) not in sys.path:
     sys.path.insert(0, str(backend_path))
 

@@ -27,12 +27,13 @@
 - [x] FastAPI CRUD endpoints for departments, beds, and patient visits
 - [x] Automated test suite (30 passing tests: models, generator, API endpoints)
 
-### Day 3 — Synthetic Data & Exploration
-- [ ] Generate realistic synthetic hospital datasets
-- [ ] Data loading scripts and seed command
-- [ ] Basic data exploration and statistics
-- [ ] API endpoints to serve summary statistics
-- [ ] Frontend: dashboard skeleton with placeholder cards
+### Day 3 — Exploratory Data Analysis & Feature Engineering ✅ (2026-10-24)
+- [x] Comprehensive dataset audit (zero duplicates, zero negative durations, 100% timestamp consistency)
+- [x] Exploratory Data Analysis suite generating 7 operational visualization figures
+- [x] Markdown EDA report with distribution insights and queue correlations (`docs/EDA_REPORT.md`)
+- [x] Prediction-time feature engineering pipeline (temporal, cyclical, operational queues, acuity)
+- [x] Strict target leakage prevention enforcing separation of future service milestones
+- [x] Automated test suite expanded to 43 passing tests across data quality, features, and API
 
 ---
 
