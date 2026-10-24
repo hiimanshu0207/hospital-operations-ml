@@ -30,6 +30,8 @@ from app.schemas.prediction import (
     DemandForecastRequest,
     HourlyForecast,
     DemandForecastResponse,
+    WaitingTimePredictionRequest,
+    WaitingTimePredictionResponse,
 )
 
 __all__ = [
@@ -52,4 +54,6 @@ __all__ = [
     "DemandForecastRequest",
     "HourlyForecast",
     "DemandForecastResponse",
+    "WaitingTimePredictionRequest",
+    "WaitingTimePredictionResponse",
 ]

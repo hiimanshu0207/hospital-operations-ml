@@ -21,6 +21,7 @@ PROHIBITED_LEAKAGE_COLUMNS = {
     "waiting_time_minutes",
     "length_of_stay_minutes",
     "total_duration_minutes",
+    "admission_required",
     "status",
     "bed_id",
 }

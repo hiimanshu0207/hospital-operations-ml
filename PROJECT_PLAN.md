@@ -50,11 +50,17 @@
 - [x] REST endpoint `POST /api/v1/predictions/demand` with dynamic Poisson confidence bounds, validation, and simulation disclaimer
 - [x] Automated test suite expanded to 53 passing tests (unit, ML validation, and prediction API)
 
-### Day 5 — Waiting Time Prediction
-- [ ] Train regression model for waiting-time estimation
-- [ ] Feature selection and model evaluation
-- [ ] Model serialization (joblib)
-- [ ] Prediction API endpoint
+### Day 5 — Waiting Time Prediction ✅ (2026-10-24)
+- [x] Target definition and consistency audit (`waiting_time_minutes = service_start - arrival`, max discrepancy 0.0m)
+- [x] Prediction-time operational feature extraction (19 features, strict leakage elimination including `admission_required`)
+- [x] Chronological train/validation/test partitions (Days 1–10 train [420], Days 11–12 val [100], Days 13–14 test [80])
+- [x] Statistical median baselines (Overall, Department, Department+Acuity)
+- [x] Regressor training and comparison: Ridge, HistGradientBoosting, RandomForestRegressor
+- [x] Honest evaluation reporting: RandomForest achieved lowest Test MAE (9.231m) and Test RMSE (12.113m)
+- [x] Residual diagnostics (mean bias: 0.056m, std: 12.113m, near-normal error distribution) and department slice analysis
+- [x] Model pipeline serialization (`ml/models/waiting_time_pipeline.joblib`) and metadata documentation (`ml/models/waiting_time_metadata.json`)
+- [x] REST endpoint `POST /api/v1/predictions/waiting-time` with input validation, confidence intervals, and clinical disclaimer
+- [x] Automated test suite expanded to 69 passing tests across ML validation and prediction API
 
 ### Day 6 — Bed Occupancy Monitoring
 - [ ] Occupancy rate computation and forecasting

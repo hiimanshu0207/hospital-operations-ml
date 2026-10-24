@@ -1,0 +1,146 @@
+{
+  "model_name": "Hospital Waiting-Time Predictor",
+  "model_version": "1.0.0",
+  "algorithm": "RandomForestRegressor",
+  "algorithm_parameters": {
+    "n_estimators": 100,
+    "max_depth": 4,
+    "min_samples_leaf": 3,
+    "random_seed": 42
+  },
+  "trained_at": "2026-10-24T17:56:28.031043+00:00",
+  "dataset_scope": {
+    "total_encounters": 600,
+    "train_period": "Days 1-10 (420 encounters)",
+    "validation_period": "Days 11-12 (100 encounters)",
+    "test_period": "Days 13-14 (80 encounters)",
+    "target": "waiting_time_minutes",
+    "target_derivation": "service_start_timestamp - arrival_timestamp"
+  },
+  "features": [
+    "queue_length",
+    "staff_available",
+    "queue_to_staff_ratio",
+    "acuity_level",
+    "age_group_code",
+    "sin_hour",
+    "cos_hour",
+    "sin_day",
+    "cos_day",
+    "is_weekend",
+    "is_night_shift",
+    "is_peak_hours",
+    "high_queue_flag",
+    "is_critical_acuity",
+    "dept_ED",
+    "dept_ICU",
+    "dept_GEN",
+    "dept_SURG",
+    "dept_PED"
+  ],
+  "evaluation_metrics": {
+    "OverallMedianBaseline": {
+      "val_mae": 19.731,
+      "val_rmse": 25.432,
+      "test_mae": 19.7,
+      "test_rmse": 25.262
+    },
+    "DepartmentMedianBaseline": {
+      "val_mae": 19.93,
+      "val_rmse": 25.598,
+      "test_mae": 19.565,
+      "test_rmse": 25.16
+    },
+    "DepartmentAcuityMedianBaseline": {
+      "val_mae": 9.462,
+      "val_rmse": 11.712,
+      "test_mae": 9.331,
+      "test_rmse": 11.895
+    },
+    "Ridge": {
+      "val_mae": 9.397,
+      "val_rmse": 11.617,
+      "test_mae": 9.551,
+      "test_rmse": 12.257
+    },
+    "HistGradientBoosting": {
+      "val_mae": 8.561,
+      "val_rmse": 10.276,
+      "test_mae": 9.757,
+      "test_rmse": 12.279
+    },
+    "RandomForestRegressor": {
+      "val_mae": 8.472,
+      "val_rmse": 10.278,
+      "test_mae": 9.231,
+      "test_rmse": 12.113
+    }
+  },
+  "residual_analysis": {
+    "mean_bias": 0.056,
+    "std_deviation": 12.113,
+    "median": 0.285,
+    "skewness": -0.576,
+    "min": -38.689,
+    "max": 24.86,
+    "p25": -5.761,
+    "p75": 7.606
+  },
+  "department_slices": {
+    "ED": {
+      "sample_size": 33,
+      "actual_mean": 45.34,
+      "predicted_mean": 43.16,
+      "mae": 9.511,
+      "rmse": 12.252
+    },
+    "ICU": {
+      "sample_size": 3,
+      "actual_mean": 39.2,
+      "predicted_mean": 37.66,
+      "mae": 5.404,
+      "rmse": 5.7
+    },
+    "GEN": {
+      "sample_size": 22,
+      "actual_mean": 43.91,
+      "predicted_mean": 43.25,
+      "mae": 9.429,
+      "rmse": 11.475
+    },
+    "SURG": {
+      "sample_size": 10,
+      "actual_mean": 49.83,
+      "predicted_mean": 50.66,
+      "mae": 8.081,
+      "rmse": 9.885
+    },
+    "PED": {
+      "sample_size": 12,
+      "actual_mean": 32.31,
+      "predicted_mean": 38.85,
+      "mae": 10.016,
+      "rmse": 15.308
+    }
+  },
+  "leakage_safeguards": {
+    "prohibited_columns": [
+      "acuity_level",
+      "arrival_timestamp",
+      "created_at",
+      "department_id",
+      "id",
+      "patient_age_group",
+      "queue_length_at_arrival",
+      "staff_available_at_arrival",
+      "visit_id"
+    ],
+    "pipeline_leakage_exception": true
+  },
+  "limitations": [
+    "Trained on 600 synthetic patient visits across 14 operational days.",
+    "Queue dynamics use arrival-time snapshots; real queues fluctuate continuously during waiting.",
+    "Low sample size for intensive departments (e.g. ICU N=3 in test period) increases slice variance.",
+    "Operational estimate only; not clinical decision software."
+  ]
+}

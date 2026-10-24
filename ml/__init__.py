@@ -19,6 +19,14 @@ from ml.demand_forecast import (
     train_and_evaluate_demand_models,
     predict_future_demand,
 )
+from ml.waiting_time import (
+    OverallMedianBaseline,
+    DepartmentMedianBaseline,
+    DepartmentAcuityMedianBaseline,
+    chronological_split_visits,
+    train_and_evaluate_waiting_time_models,
+    predict_waiting_time,
+)
 
 __all__ = [
     "HospitalFeaturePipeline",
@@ -34,4 +42,10 @@ __all__ = [
     "chronological_split",
     "train_and_evaluate_demand_models",
     "predict_future_demand",
+    "OverallMedianBaseline",
+    "DepartmentMedianBaseline",
+    "DepartmentAcuityMedianBaseline",
+    "chronological_split_visits",
+    "train_and_evaluate_waiting_time_models",
+    "predict_waiting_time",
 ]
