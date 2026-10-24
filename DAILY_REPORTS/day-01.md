@@ -31,7 +31,7 @@ all project documentation.
 | 12 | Created test file for `/health` endpoint | ✅ Done |
 | 13 | Verified frontend build (`vite build`) | ✅ Passed — 16 modules, built in 297ms |
 | 14 | Verified backend health endpoint (`pytest`) | ✅ 2/2 tests passed |
-| 15 | Git initialization and initial commit | ✅ Done — Git v2.55.0 configured, initial commit 27ead7c created |
+| 15 | Git initialization, initial commit & GitHub push | ✅ Done — Git v2.55.0 configured, commit 27ead7c pushed to GitHub `main` |
 
 ---
 
@@ -135,10 +135,9 @@ pytest tests/test_backend/test_health.py                 → ✅ 2 passed in 2.4
 
 ## Next Day's Tasks (Day 2)
 
-1. Configure GitHub remote repository and push initial commit
-2. Design hospital domain entities (patients, departments, beds, staff)
-3. Create SQLAlchemy ORM models
-4. Build synthetic data generator script
-5. Create CRUD API endpoints for core entities
-6. Frontend: basic navigation layout with react-router-dom
+1. Design hospital domain entities (patients, departments, beds, staff)
+2. Create SQLAlchemy ORM models
+3. Build synthetic data generator script
+4. Create CRUD API endpoints for core entities
+5. Frontend: basic navigation layout with react-router-dom
 
