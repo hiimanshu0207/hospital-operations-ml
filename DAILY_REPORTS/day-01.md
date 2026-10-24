@@ -31,7 +31,7 @@ all project documentation.
 | 12 | Created test file for `/health` endpoint | ✅ Done |
 | 13 | Verified frontend build (`vite build`) | ✅ Passed — 16 modules, built in 297ms |
 | 14 | Verified backend health endpoint (`pytest`) | ✅ 2/2 tests passed |
-| 15 | Git initialization and initial commit | ⏳ Pending (Git not installed) |
+| 15 | Git initialization and initial commit | ✅ Done — Git v2.55.0 configured, initial commit 27ead7c created |
 
 ---
 
@@ -92,7 +92,9 @@ node --version          → v24.22.1
 npm --version           → 11.19.1
 python --version        → Python 3.15.1
 pip --version           → pip 26.2.2
-git --version           → NOT FOUND
+git --version           → git version 2.55.0.windows.5 (installed & verified)
+git config              → user.name: "Himanshu Singh", user.email: "hiimanshu0207@users.noreply.github.com"
+git commit              → 27ead7c (42 files committed on main)
 
 npm create vite@latest ./frontend -- --template react   → ✅ Success
 npm install                                              → ✅ 24 packages
@@ -114,6 +116,7 @@ pytest tests/test_backend/test_health.py                 → ✅ 2 passed in 2.4
 | `vite build` | Exit code 0, `dist/` created | ✅ Exit 0 — 16 modules, 3 output files |
 | `GET /health` | `{"status": "healthy"}` | ✅ Verified via pytest TestClient |
 | `pytest test_health.py` | 2 tests pass | ✅ 2 passed in 2.40s |
+| `git status` | Clean working tree on `main` | ✅ Commit `27ead7c` created |
 
 > **Note:** `npm run build` fails due to `&` in the workspace path breaking npm script
 > resolution. Use `node node_modules/vite/bin/vite.js build` as a workaround.
@@ -123,20 +126,19 @@ pytest tests/test_backend/test_health.py                 → ✅ 2 passed in 2.4
 
 ## Known Issues & Blockers
 
-| Issue | Severity | Resolution |
-|-------|----------|------------|
-| **Git not installed** | 🔴 High | Install via `winget install --id Git.Git -e --source winget`, then restart terminal |
+| Issue | Severity | Status / Resolution |
+|-------|----------|---------------------|
+| **Git installation** | 🟢 Resolved | Installed Git 2.55.0 via winget. PATH updated in Machine environment. In existing terminals, reload `$env:Path` or restart VS Code. |
 | **`&` in workspace path** | 🟡 Medium | `npm run build` / `npm run dev` fail because Node.js splits the path at `&`. Workaround: invoke vite binary directly with `node node_modules/vite/bin/vite.js build` or `node node_modules/vite/bin/vite.js` for dev server. Long-term fix: rename workspace folder to avoid `&`. |
 
 ---
 
 ## Next Day's Tasks (Day 2)
 
-1. Install Git and initialize repository
-2. Initial commit with all scaffolding files
-3. Configure GitHub remote and push
-4. Design hospital domain entities (patients, departments, beds, staff)
-5. Create SQLAlchemy ORM models
-6. Build synthetic data generator script
-7. Create CRUD API endpoints for core entities
-8. Frontend: basic navigation layout with react-router-dom
+1. Configure GitHub remote repository and push initial commit
+2. Design hospital domain entities (patients, departments, beds, staff)
+3. Create SQLAlchemy ORM models
+4. Build synthetic data generator script
+5. Create CRUD API endpoints for core entities
+6. Frontend: basic navigation layout with react-router-dom
+
