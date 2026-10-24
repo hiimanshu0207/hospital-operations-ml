@@ -73,11 +73,19 @@
 - [x] Versioned FastAPI endpoints: `GET /api/v1/optimization/utilization`, `POST /api/v1/optimization/simulate`, `POST /api/v1/optimization/allocate`
 - [x] Automated test suite expanded to 90 passing tests across ML units and FastAPI integration
 
-### Day 7 — Resource Allocation
-- [ ] Staff and equipment utilization metrics
-- [ ] Basic optimization model setup
-- [ ] What-if scenario API endpoints
-- [ ] Frontend scenario explorer
+### Day 7 — React Dashboard Integration ✅ (2026-10-25)
+- [x] Vite dev proxy configured in `frontend/vite.config.js` to route `/api` and `/health` to FastAPI on port 8000
+- [x] Centralized Axios service layer (`frontend/src/services/api.js`) consuming real backend endpoints without mock fallbacks
+- [x] Modern, responsive dashboard layout with dark aesthetic, ambient glow, top navigation, and sidebar tabs
+- [x] Live backend connectivity status indicator with automatic reconnection polling and manual refresh controls
+- [x] Hospital Overview with dynamic KPI cards, operational stress index gauge, active warnings alert box, and recent patient encounter stream
+- [x] Department Operations view with per-department bed utilization progress bars, nurse ratio compliance badges, and queue pressures
+- [x] Interactive Demand Forecast tool with department and horizon selectors, Recharts `AreaChart` with shaded 95% confidence intervals, and hourly forecast table
+- [x] Interactive Waiting-Time Predictor with ESI triage acuity (Levels 1–5), queue length and staff availability sliders, age demographic groups, and 95% uncertainty interval output
+- [x] What-If Simulation Explorer with arrival surge slider (-50% to +100%), horizon windows, fine-grained staff/bed steppers, and baseline vs. simulated comparisons
+- [x] Staff Allocation Optimizer with shift selector, optional budget constraints, optimal staff recommendations table, and API recommendation rationales
+- [x] Prominent academic synthetic-data disclaimer displayed across all model prediction views
+- [x] Verification completed: full pytest suite passing (90/90), oxlint passing (0 errors, 0 warnings), and Vite production build succeeding
 
 ### Day 8 — Model Refinement & Testing
 - [ ] Cross-validation and hyperparameter tuning
