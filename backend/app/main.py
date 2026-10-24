@@ -57,7 +57,8 @@ app.add_middleware(
 # ---------------------------------------------------------------------------
 app.include_router(departments_router, prefix="/api/v1")
 app.include_router(beds_router, prefix="/api/v1")
-app.include_router(visits_router, prefix="/api/v1")
+app.include_router(visits_router, prefix="/api/v1/visits")
+app.include_router(visits_router, prefix="/api/v1/patient-visits")
 app.include_router(admin_router, prefix="/api/v1")
 app.include_router(predictions_router, prefix="/api/v1")
 app.include_router(optimization_router, prefix="/api/v1")

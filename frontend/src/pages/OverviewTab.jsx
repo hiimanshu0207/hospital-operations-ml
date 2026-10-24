@@ -139,12 +139,12 @@ export default function OverviewTab({
         <StatCard
           title="Avg Triage Wait"
           value={
-            visitsSummary?.avg_waiting_time_minutes
+            typeof visitsSummary?.avg_waiting_time_minutes === 'number'
               ? `${visitsSummary.avg_waiting_time_minutes.toFixed(1)}`
               : '—'
           }
-          unit={visitsSummary?.avg_waiting_time_minutes ? 'min' : ''}
-          subtitle={`Total visits: ${visitsSummary?.total_visits || 0}`}
+          unit={typeof visitsSummary?.avg_waiting_time_minutes === 'number' ? 'min' : ''}
+          subtitle={`Total visits: ${visitsSummary?.total_visits ?? 0}`}
           icon={ClockIcon}
           color="amber"
           badge={

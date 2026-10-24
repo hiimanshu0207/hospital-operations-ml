@@ -157,3 +157,89 @@ def test_create_visit_rejects_invalid_acuity(client):
     }
     res = client.post("/api/v1/visits", json=payload)
     assert res.status_code == 422
+
+
+def test_patient_visits_summary_and_recent_endpoints(seeded_client):
+    """GET /api/v1/patient-visits/summary and /recent should return consistent operational telemetry."""
+    # Summary via /api/v1/patient-visits/summary
+    summary_res = seeded_client.get("/api/v1/patient-visits/summary")
+    assert summary_res.status_code == 200
+    summary = summary_res.json()
+    assert summary["total_visits"] == 60
+    assert summary["avg_waiting_time_minutes"] >= 0
+    assert summary["avg_length_of_stay_minutes"] > 0
+    assert summary["total_admissions"] >= 0
+    assert isinstance(summary["acuity_breakdown"], dict)
+    assert isinstance(summary["department_breakdown"], dict)
+    assert len(summary["acuity_breakdown"]) > 0
+
+    # Summary alias via /api/v1/visits/summary
+    alias_summary_res = seeded_client.get("/api/v1/visits/summary")
+    assert alias_summary_res.status_code == 200
+    assert alias_summary_res.json() == summary
+
+    # Recent encounters via /api/v1/patient-visits/recent?limit=8
+    recent_res = seeded_client.get("/api/v1/patient-visits/recent?limit=8")
+    assert recent_res.status_code == 200
+    recent = recent_res.json()
+    assert len(recent) == 8
+
+    # Verify response schema fields expected by the dashboard
+    first = recent[0]
+    assert "id" in first
+    assert "visit_id" in first
+    assert "patient_age_group" in first
+    assert "acuity_level" in first
+    assert "queue_length_at_arrival" in first
+    assert "staff_available_at_arrival" in first
+    assert "waiting_time_minutes" in first
+    assert "status" in first
+    assert "arrival_timestamp" in first
+
+    # Verify descending ordering by arrival_timestamp
+    timestamps = [r["arrival_timestamp"] for r in recent]
+    assert timestamps == sorted(timestamps, reverse=True)
+
+    # Recent encounters alias via /api/v1/visits/recent?limit=5
+    alias_recent_res = seeded_client.get("/api/v1/visits/recent?limit=5")
+    assert alias_recent_res.status_code == 200
+    assert len(alias_recent_res.json()) == 5
+
+
+def test_patient_visits_recent_limit_validation(client):
+    """GET /api/v1/patient-visits/recent should reject limits outside 1-100 or non-integer."""
+    # limit = 0 (below minimum 1)
+    res_zero = client.get("/api/v1/patient-visits/recent?limit=0")
+    assert res_zero.status_code == 422
+
+    # limit = -5 (negative)
+    res_neg = client.get("/api/v1/patient-visits/recent?limit=-5")
+    assert res_neg.status_code == 422
+
+    # limit = 101 (above maximum 100)
+    res_max = client.get("/api/v1/patient-visits/recent?limit=101")
+    assert res_max.status_code == 422
+
+    # limit = non-integer
+    res_str = client.get("/api/v1/patient-visits/recent?limit=invalid")
+    assert res_str.status_code == 422
+
+
+def test_patient_visits_empty_database(client):
+    """Endpoints should handle empty database state gracefully without crashing or 404."""
+    # Empty summary
+    summary_res = client.get("/api/v1/patient-visits/summary")
+    assert summary_res.status_code == 200
+    summary = summary_res.json()
+    assert summary["total_visits"] == 0
+    assert summary["avg_waiting_time_minutes"] == 0.0
+    assert summary["avg_length_of_stay_minutes"] == 0.0
+    assert summary["total_admissions"] == 0
+    assert summary["acuity_breakdown"] == {}
+    assert summary["department_breakdown"] == {}
+
+    # Empty recent encounters
+    recent_res = client.get("/api/v1/patient-visits/recent?limit=8")
+    assert recent_res.status_code == 200
+    assert recent_res.json() == []
+

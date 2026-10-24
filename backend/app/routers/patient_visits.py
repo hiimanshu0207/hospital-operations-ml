@@ -16,7 +16,7 @@ from app.schemas.patient_visit import (
     PatientVisitSummary,
 )
 
-router = APIRouter(prefix="/visits", tags=["patient_visits"])
+router = APIRouter(tags=["patient_visits"])
 
 
 @router.get("", response_model=list[PatientVisitResponse])
@@ -40,6 +40,21 @@ def list_visits(
     return query.order_by(PatientVisit.arrival_timestamp.desc()).offset(skip).limit(limit).all()
 
 
+@router.get("/recent", response_model=list[PatientVisitResponse])
+def get_recent_visits(
+    limit: int = Query(default=10, ge=1, le=100, description="Maximum number of recent patient visits to return"),
+    db: Session = Depends(get_db),
+):
+    """Retrieve the most recent patient visits ordered by arrival timestamp descending."""
+    return (
+        db.query(PatientVisit)
+        .order_by(PatientVisit.arrival_timestamp.desc())
+        .limit(limit)
+        .all()
+    )
+
+
+@router.get("/summary", response_model=PatientVisitSummary)
 @router.get("/metrics/summary", response_model=PatientVisitSummary)
 def get_visits_summary(db: Session = Depends(get_db)):
     """Compute high-level operational statistics across all patient visits."""
