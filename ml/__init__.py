@@ -27,6 +27,15 @@ from ml.waiting_time import (
     train_and_evaluate_waiting_time_models,
     predict_waiting_time,
 )
+from ml.optimization import (
+    load_hospital_operational_state,
+    calculate_department_utilization,
+    simulate_what_if_scenario,
+    optimize_staff_allocation,
+    DEFAULT_MIN_STAFF,
+    DEFAULT_MAX_STAFF,
+    DEFAULT_PRIORITY_WEIGHTS,
+)
 
 __all__ = [
     "HospitalFeaturePipeline",
@@ -48,4 +57,11 @@ __all__ = [
     "chronological_split_visits",
     "train_and_evaluate_waiting_time_models",
     "predict_waiting_time",
+    "load_hospital_operational_state",
+    "calculate_department_utilization",
+    "simulate_what_if_scenario",
+    "optimize_staff_allocation",
+    "DEFAULT_MIN_STAFF",
+    "DEFAULT_MAX_STAFF",
+    "DEFAULT_PRIORITY_WEIGHTS",
 ]

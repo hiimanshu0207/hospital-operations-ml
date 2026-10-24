@@ -62,11 +62,16 @@
 - [x] REST endpoint `POST /api/v1/predictions/waiting-time` with input validation, confidence intervals, and clinical disclaimer
 - [x] Automated test suite expanded to 69 passing tests across ML validation and prediction API
 
-### Day 6 — Bed Occupancy Monitoring
-- [ ] Occupancy rate computation and forecasting
-- [ ] Classification model for occupancy levels
-- [ ] Real-time monitoring API
-- [ ] Dashboard occupancy charts
+### Day 6 — Hospital Resource Optimization and What-if Simulation ✅ (2026-10-24)
+- [x] Departmental resource & capacity utilization engine (bed utilization, staff by shift/role, queue pressure, ML wait-time indicators)
+- [x] Division-by-zero protection and missing data safety across all operational calculations
+- [x] Reproducible, non-mutating what-if simulation engine (arrival surges, staff adjustments, bed capacity changes)
+- [x] Reused Day 5 ML waiting-time predictor and Day 4 demand metrics to model simulated operational deltas
+- [x] Transparent constraint-aware staff allocation optimizer using SciPy SLSQP with Largest Remainder integer rounding
+- [x] Hard safety constraints enforced (headcount budget conservation, minimum safety staffing, maximum capacity bounds)
+- [x] Rule-based constrained recommendation baseline for comparison
+- [x] Versioned FastAPI endpoints: `GET /api/v1/optimization/utilization`, `POST /api/v1/optimization/simulate`, `POST /api/v1/optimization/allocate`
+- [x] Automated test suite expanded to 90 passing tests across ML units and FastAPI integration
 
 ### Day 7 — Resource Allocation
 - [ ] Staff and equipment utilization metrics

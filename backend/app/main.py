@@ -16,6 +16,7 @@ from app.routers.beds import router as beds_router
 from app.routers.patient_visits import router as visits_router
 from app.routers.admin import router as admin_router
 from app.routers.predictions import router as predictions_router
+from app.routers.optimization import router as optimization_router
 
 
 @asynccontextmanager
@@ -59,6 +60,7 @@ app.include_router(beds_router, prefix="/api/v1")
 app.include_router(visits_router, prefix="/api/v1")
 app.include_router(admin_router, prefix="/api/v1")
 app.include_router(predictions_router, prefix="/api/v1")
+app.include_router(optimization_router, prefix="/api/v1")
 
 
 # ---------------------------------------------------------------------------

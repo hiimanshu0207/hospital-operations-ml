@@ -7,6 +7,7 @@ from app.routers.beds import router as beds_router
 from app.routers.patient_visits import router as visits_router
 from app.routers.admin import router as admin_router
 from app.routers.predictions import router as predictions_router
+from app.routers.optimization import router as optimization_router
 
 __all__ = [
     "departments_router",
@@ -14,4 +15,5 @@ __all__ = [
     "visits_router",
     "admin_router",
     "predictions_router",
+    "optimization_router",
 ]
