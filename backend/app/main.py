@@ -1,14 +1,32 @@
 """
 FastAPI application entry point.
 
-Provides the /health endpoint and CORS middleware.
-Router modules will be included here as features are added.
+Provides the /health endpoint, CORS middleware, database lifespan initialization,
+and operational domain routers under /api/v1.
 """
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
+from app.database import init_db
+from app.routers.departments import router as departments_router
+from app.routers.beds import router as beds_router
+from app.routers.patient_visits import router as visits_router
+from app.routers.admin import router as admin_router
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Application lifespan handler.
+
+    Initializes database tables on application startup.
+    """
+    init_db()
+    yield
+
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -18,6 +36,7 @@ app = FastAPI(
         "Provides endpoints for patient-demand analysis, waiting-time "
         "prediction, bed-occupancy monitoring, and resource allocation."
     ),
+    lifespan=lifespan,
 )
 
 # ---------------------------------------------------------------------------
@@ -30,6 +49,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ---------------------------------------------------------------------------
+# Include API Routers under /api/v1
+# ---------------------------------------------------------------------------
+app.include_router(departments_router, prefix="/api/v1")
+app.include_router(beds_router, prefix="/api/v1")
+app.include_router(visits_router, prefix="/api/v1")
+app.include_router(admin_router, prefix="/api/v1")
 
 
 # ---------------------------------------------------------------------------

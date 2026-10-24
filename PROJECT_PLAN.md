@@ -16,15 +16,16 @@
 - [x] Dependencies, `.gitignore`, environment config
 - [x] Documentation: README, PROJECT_PLAN, ARCHITECTURE
 - [x] Verification: frontend build + backend health check
-- [ ] Git init and initial commit (pending Git installation)
+- [x] Git init, configuration, and initial commit pushed to GitHub
 
-### Day 2 — Database & Data Models
-- [ ] Design hospital domain entities (patients, departments, beds, staff)
-- [ ] SQLAlchemy ORM models
-- [ ] Alembic migration setup (or manual table creation)
-- [ ] Synthetic data generator script
-- [ ] CRUD API endpoints for core entities
-- [ ] Frontend: basic navigation layout
+### Day 2 — Database & Data Models ✅ (2026-10-24)
+- [x] Design hospital domain entities (patients, departments, beds, staff)
+- [x] SQLAlchemy ORM models with integrity check constraints
+- [x] SQLite persistence configuration and table initialization (`init_db`)
+- [x] Reproducible synthetic data generator (Python, Pandas, NumPy)
+- [x] Validation for non-negative durations, sequential timestamps, and bed capacity
+- [x] FastAPI CRUD endpoints for departments, beds, and patient visits
+- [x] Automated test suite (30 passing tests: models, generator, API endpoints)
 
 ### Day 3 — Synthetic Data & Exploration
 - [ ] Generate realistic synthetic hospital datasets

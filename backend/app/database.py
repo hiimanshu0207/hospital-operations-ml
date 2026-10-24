@@ -40,3 +40,14 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+def init_db(engine_override=None) -> None:
+    """
+    Create all tables in the database if they do not already exist.
+
+    Imports all models to register them on Base.metadata.
+    """
+    import app.models  # noqa: F401
+    target_engine = engine_override or engine
+    Base.metadata.create_all(bind=target_engine)

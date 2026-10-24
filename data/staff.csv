@@ -1,0 +1,85 @@
+id,staff_id,role,department_id,shift,is_active,created_at
+1,STF-ED-001,Doctor,1,Morning,True,2026-01-01 00:00:00+00:00
+2,STF-ED-002,Registered Nurse,1,Evening,True,2026-01-01 00:00:00+00:00
+3,STF-ED-003,Registered Nurse,1,Night,True,2026-01-01 00:00:00+00:00
+4,STF-ED-004,Registered Nurse,1,Morning,True,2026-01-01 00:00:00+00:00
+5,STF-ED-005,Triage Nurse,1,Evening,True,2026-01-01 00:00:00+00:00
+6,STF-ED-006,Doctor,1,Night,True,2026-01-01 00:00:00+00:00
+7,STF-ED-007,Registered Nurse,1,Morning,True,2026-01-01 00:00:00+00:00
+8,STF-ED-008,Registered Nurse,1,Evening,True,2026-01-01 00:00:00+00:00
+9,STF-ED-009,Triage Nurse,1,Night,True,2026-01-01 00:00:00+00:00
+10,STF-ED-010,Registered Nurse,1,Morning,True,2026-01-01 00:00:00+00:00
+11,STF-ED-011,Doctor,1,Evening,True,2026-01-01 00:00:00+00:00
+12,STF-ED-012,Registered Nurse,1,Night,True,2026-01-01 00:00:00+00:00
+13,STF-ED-013,Triage Nurse,1,Morning,True,2026-01-01 00:00:00+00:00
+14,STF-ED-014,Registered Nurse,1,Evening,True,2026-01-01 00:00:00+00:00
+15,STF-ED-015,Registered Nurse,1,Night,True,2026-01-01 00:00:00+00:00
+16,STF-ED-016,Doctor,1,Morning,True,2026-01-01 00:00:00+00:00
+17,STF-ED-017,Triage Nurse,1,Evening,True,2026-01-01 00:00:00+00:00
+18,STF-ED-018,Registered Nurse,1,Night,True,2026-01-01 00:00:00+00:00
+19,STF-ED-019,Registered Nurse,1,Morning,True,2026-01-01 00:00:00+00:00
+20,STF-ED-020,Registered Nurse,1,Evening,True,2026-01-01 00:00:00+00:00
+21,STF-ED-021,Doctor,1,Night,True,2026-01-01 00:00:00+00:00
+22,STF-ICU-022,Doctor,2,Morning,True,2026-01-01 00:00:00+00:00
+23,STF-ICU-023,Registered Nurse,2,Evening,True,2026-01-01 00:00:00+00:00
+24,STF-ICU-024,Registered Nurse,2,Night,True,2026-01-01 00:00:00+00:00
+25,STF-ICU-025,Registered Nurse,2,Morning,True,2026-01-01 00:00:00+00:00
+26,STF-ICU-026,Registered Nurse,2,Evening,True,2026-01-01 00:00:00+00:00
+27,STF-ICU-027,Doctor,2,Night,True,2026-01-01 00:00:00+00:00
+28,STF-ICU-028,Registered Nurse,2,Morning,True,2026-01-01 00:00:00+00:00
+29,STF-ICU-029,Registered Nurse,2,Evening,True,2026-01-01 00:00:00+00:00
+30,STF-ICU-030,Registered Nurse,2,Night,True,2026-01-01 00:00:00+00:00
+31,STF-ICU-031,Registered Nurse,2,Morning,True,2026-01-01 00:00:00+00:00
+32,STF-ICU-032,Doctor,2,Evening,True,2026-01-01 00:00:00+00:00
+33,STF-ICU-033,Registered Nurse,2,Night,True,2026-01-01 00:00:00+00:00
+34,STF-ICU-034,Registered Nurse,2,Morning,True,2026-01-01 00:00:00+00:00
+35,STF-ICU-035,Registered Nurse,2,Evening,True,2026-01-01 00:00:00+00:00
+36,STF-ICU-036,Registered Nurse,2,Night,True,2026-01-01 00:00:00+00:00
+37,STF-GEN-037,Doctor,3,Morning,True,2026-01-01 00:00:00+00:00
+38,STF-GEN-038,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+39,STF-GEN-039,Registered Nurse,3,Night,True,2026-01-01 00:00:00+00:00
+40,STF-GEN-040,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+41,STF-GEN-041,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+42,STF-GEN-042,Doctor,3,Night,True,2026-01-01 00:00:00+00:00
+43,STF-GEN-043,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+44,STF-GEN-044,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+45,STF-GEN-045,Registered Nurse,3,Night,True,2026-01-01 00:00:00+00:00
+46,STF-GEN-046,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+47,STF-GEN-047,Doctor,3,Evening,True,2026-01-01 00:00:00+00:00
+48,STF-GEN-048,Registered Nurse,3,Night,True,2026-01-01 00:00:00+00:00
+49,STF-GEN-049,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+50,STF-GEN-050,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+51,STF-GEN-051,Registered Nurse,3,Night,True,2026-01-01 00:00:00+00:00
+52,STF-GEN-052,Doctor,3,Morning,True,2026-01-01 00:00:00+00:00
+53,STF-GEN-053,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+54,STF-GEN-054,Registered Nurse,3,Night,True,2026-01-01 00:00:00+00:00
+55,STF-GEN-055,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+56,STF-GEN-056,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+57,STF-GEN-057,Doctor,3,Night,True,2026-01-01 00:00:00+00:00
+58,STF-GEN-058,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+59,STF-GEN-059,Registered Nurse,3,Evening,True,2026-01-01 00:00:00+00:00
+60,STF-GEN-060,Registered Nurse,3,Night,True,2026-01-01 00:00:00+00:00
+61,STF-GEN-061,Registered Nurse,3,Morning,True,2026-01-01 00:00:00+00:00
+62,STF-SURG-062,Doctor,4,Morning,True,2026-01-01 00:00:00+00:00
+63,STF-SURG-063,Registered Nurse,4,Evening,True,2026-01-01 00:00:00+00:00
+64,STF-SURG-064,Registered Nurse,4,Night,True,2026-01-01 00:00:00+00:00
+65,STF-SURG-065,Registered Nurse,4,Morning,True,2026-01-01 00:00:00+00:00
+66,STF-SURG-066,Registered Nurse,4,Evening,True,2026-01-01 00:00:00+00:00
+67,STF-SURG-067,Doctor,4,Night,True,2026-01-01 00:00:00+00:00
+68,STF-SURG-068,Registered Nurse,4,Morning,True,2026-01-01 00:00:00+00:00
+69,STF-SURG-069,Registered Nurse,4,Evening,True,2026-01-01 00:00:00+00:00
+70,STF-SURG-070,Registered Nurse,4,Night,True,2026-01-01 00:00:00+00:00
+71,STF-SURG-071,Registered Nurse,4,Morning,True,2026-01-01 00:00:00+00:00
+72,STF-SURG-072,Doctor,4,Evening,True,2026-01-01 00:00:00+00:00
+73,STF-SURG-073,Registered Nurse,4,Night,True,2026-01-01 00:00:00+00:00
+74,STF-PED-074,Doctor,5,Morning,True,2026-01-01 00:00:00+00:00
+75,STF-PED-075,Registered Nurse,5,Evening,True,2026-01-01 00:00:00+00:00
+76,STF-PED-076,Registered Nurse,5,Night,True,2026-01-01 00:00:00+00:00
+77,STF-PED-077,Registered Nurse,5,Morning,True,2026-01-01 00:00:00+00:00
+78,STF-PED-078,Registered Nurse,5,Evening,True,2026-01-01 00:00:00+00:00
+79,STF-PED-079,Doctor,5,Night,True,2026-01-01 00:00:00+00:00
+80,STF-PED-080,Registered Nurse,5,Morning,True,2026-01-01 00:00:00+00:00
+81,STF-PED-081,Registered Nurse,5,Evening,True,2026-01-01 00:00:00+00:00
+82,STF-PED-082,Registered Nurse,5,Night,True,2026-01-01 00:00:00+00:00
+83,STF-PED-083,Registered Nurse,5,Morning,True,2026-01-01 00:00:00+00:00
+84,STF-PED-084,Doctor,5,Evening,True,2026-01-01 00:00:00+00:00
