@@ -71,6 +71,12 @@ def get_department(department_id: int, db: Session = Depends(get_db)):
     )
 
 
+@router.get("/{department_id}/metrics", response_model=DepartmentResponse)
+def get_department_metrics(department_id: int, db: Session = Depends(get_db)):
+    """Retrieve operational telemetry and occupancy metrics for a single department."""
+    return get_department(department_id=department_id, db=db)
+
+
 @router.post("", response_model=DepartmentResponse, status_code=status.HTTP_201_CREATED)
 def create_department(dept_in: DepartmentCreate, db: Session = Depends(get_db)):
     """Create a new hospital department."""

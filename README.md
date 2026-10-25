@@ -28,7 +28,8 @@ This system provides a full-stack, data-driven operational decision-support plat
 | **Database** | SQLite / SQLAlchemy ORM | Local development database with PostgreSQL schema migration readiness |
 | **Machine Learning** | Scikit-Learn, Pandas, NumPy | Leakage-free regression, time-series forecasting, and Poisson uncertainty estimation |
 | **Optimization** | SciPy (`scipy.optimize.minimize`) | Constrained non-linear optimization with Hamilton-Hare integer rounding |
-| **Code Quality** | Pytest, Oxlint | 90 automated backend/ML tests + sub-50ms frontend static linting |
+| **Code Quality** | Pytest, Oxlint | 115 automated backend, ML & E2E tests + sub-50ms frontend static linting |
+
 
 ---
 
@@ -60,7 +61,7 @@ This system provides a full-stack, data-driven operational decision-support plat
 │   ├── optimization.py        Resource utilization, what-if simulator & staff allocator
 │   └── models/                Serialized Joblib model pipelines & JSON metadata
 ├── data/                      Synthetic operational datasets (CSV format)
-├── tests/                     Comprehensive test suite (90 passing tests)
+├── tests/                     Comprehensive test suite (115 passing tests)
 ├── docs/                      Architecture, EDA report, and design documentation
 └── DAILY_REPORTS/             Day-by-day development logs
 ```

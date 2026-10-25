@@ -30,3 +30,12 @@ class BedResponse(BedBase):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class BedSummaryResponse(BaseModel):
+    """Aggregated bed inventory and occupancy telemetry."""
+    total_beds: int
+    occupied_beds: int
+    available_beds: int
+    overall_occupancy_rate: float
+

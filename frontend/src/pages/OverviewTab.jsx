@@ -84,11 +84,11 @@ export default function OverviewTab({
 
   const stressIndex = summary.operational_stress_index || 0.0
   const stressLevel =
-    stressIndex >= 0.7 ? 'Critical Stress' : stressIndex >= 0.4 ? 'Elevated Pressure' : 'Normal Operations'
+    stressIndex >= 70.0 ? 'Critical Stress' : stressIndex >= 40.0 ? 'Elevated Pressure' : 'Normal Operations'
   const stressBadgeType =
-    stressIndex >= 0.7 ? 'danger' : stressIndex >= 0.4 ? 'warning' : 'success'
+    stressIndex >= 70.0 ? 'danger' : stressIndex >= 40.0 ? 'warning' : 'success'
   const stressColor =
-    stressIndex >= 0.7 ? 'rose' : stressIndex >= 0.4 ? 'amber' : 'emerald'
+    stressIndex >= 70.0 ? 'rose' : stressIndex >= 40.0 ? 'amber' : 'emerald'
 
   const activeWarnings = utilizationData?.active_warnings || []
   const departments = utilizationData?.department_utilization || []
@@ -128,7 +128,7 @@ export default function OverviewTab({
 
         <StatCard
           title="Operational Stress"
-          value={stressIndex.toFixed(2)}
+          value={`${stressIndex.toFixed(1)} / 100`}
           subtitle={stressLevel}
           icon={ActivityIcon}
           color={stressColor}

@@ -87,20 +87,26 @@
 - [x] Prominent academic synthetic-data disclaimer displayed across all model prediction views
 - [x] Verification completed: full pytest suite passing (90/90), oxlint passing (0 errors, 0 warnings), and Vite production build succeeding
 
-### Day 8 — Model Refinement & Testing
-- [ ] Cross-validation and hyperparameter tuning
-- [ ] Model comparison and selection
-- [ ] Comprehensive ML test suite
-- [ ] Performance benchmarks
+### Day 8 — Patient-Visit API Integration & Route Harmonization
+- [x] Diagnosed and resolved 404 on `GET /api/v1/patient-visits/summary` and `GET /api/v1/patient-visits/recent?limit=8`
+- [x] Mounted `visits_router` under both `/api/v1/visits` and `/api/v1/patient-visits` for 100% backward compatibility
+- [x] Added `PatientVisitSummaryResponse` and ordered `/recent` query endpoints
+- [x] Automated test suite in `tests/test_backend/test_api_visits.py` passing with limit validation
 
 ---
 
 ## Phase 3: Integration & Dashboard (Days 9–12)
 
-### Day 9 — Dashboard Core
-- [ ] Full dashboard layout with Recharts visualizations
-- [ ] Real-time data refresh
-- [ ] Responsive design
+### Day 9 — End-to-End Testing and Model Validation
+- [x] Automated end-to-end validation suite covering all six operational views in `tests/test_backend/test_e2e_validation.py`
+- [x] Verified demand forecasting and waiting-time prediction with valid, invalid, and boundary inputs
+- [x] Tested what-if simulation and staff allocation constraints: staffing minimums, bed eviction prevention, integer allocations, and workforce budget conservation
+- [x] Verified prediction reproducibility, non-negativity ($\ge 0$), and clinical acuity triage ordering (ESI 1 wait < ESI 5 wait)
+- [x] Audited strict absence of prohibited target-leakage features (`PROHIBITED_LEAKAGE_COLUMNS` rejection verified)
+- [x] Tested empty database handling across all routes, malformed bodies, and missing model artifacts (503 Service Unavailable)
+- [x] Resolved defect in `GET /api/v1/beds/summary` (router path ordering and `BedSummaryResponse`) and added `GET /api/v1/departments/{id}/metrics`
+- [x] Fixed operational stress index threshold scaling bug in `OverviewTab.jsx` (adjusted to 0–100 scale)
+- [x] Executed complete test suite (115/115 passed), frontend lint (`oxlint` 0 errors/warnings), and production build (`vite build` succeeded)
 
 ### Day 10 — Interactive Features
 - [ ] Date/department filters

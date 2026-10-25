@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.bed import Bed
 from app.models.department import Department
-from app.schemas.bed import BedCreate, BedOccupancyUpdate, BedResponse
+from app.schemas.bed import BedCreate, BedOccupancyUpdate, BedResponse, BedSummaryResponse
 
 router = APIRouter(prefix="/beds", tags=["beds"])
 
@@ -32,6 +32,21 @@ def list_beds(
         query = query.filter(Bed.bed_type == bed_type)
 
     return query.offset(offset).limit(limit).all()
+
+
+@router.get("/summary", response_model=BedSummaryResponse)
+def get_beds_summary(db: Session = Depends(get_db)):
+    """Retrieve aggregated bed occupancy and availability metrics across the hospital."""
+    total = db.query(Bed).count()
+    occupied = db.query(Bed).filter(Bed.is_occupied.is_(True)).count()
+    available = max(0, total - occupied)
+    rate = round(occupied / total, 3) if total > 0 else 0.0
+    return BedSummaryResponse(
+        total_beds=total,
+        occupied_beds=occupied,
+        available_beds=available,
+        overall_occupancy_rate=rate,
+    )
 
 
 @router.get("/{bed_id}", response_model=BedResponse)
