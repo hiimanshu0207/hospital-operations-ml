@@ -73,7 +73,7 @@ export default function Navbar({
                 backendStatus === 'connecting' ? 'animate-ping' : ''
               }`}
             />
-            <span className="hidden xs:inline">{currentStatus.label}</span>
+            <span>{currentStatus.label}</span>
           </div>
 
           {/* Refresh button */}

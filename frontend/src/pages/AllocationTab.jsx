@@ -169,12 +169,12 @@ export default function AllocationTab() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
               title="Optimizer Status"
-              value={allocationResult.optimizer_status || 'Optimal'}
+              value={allocationResult.optimizer_status || 'CONVERGED'}
               subtitle="Algorithmic convergence"
               icon={CheckCircleIcon}
-              color="emerald"
+              color={allocationResult.optimizer_status === 'CONVERGED' ? 'emerald' : 'amber'}
               badge={allocationResult.optimizer_status}
-              badgeType="success"
+              badgeType={allocationResult.optimizer_status === 'CONVERGED' ? 'success' : 'warning'}
             />
 
             <StatCard

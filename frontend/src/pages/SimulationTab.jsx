@@ -339,15 +339,15 @@ export default function SimulationTab() {
 
             <StatCard
               title="Surge Severity"
-              value={impact?.surge_severity || 'Nominal'}
+              value={impact?.surge_severity || 'Normal'}
               subtitle={`Inflow adjustment: ${arrivalSurgePct > 0 ? `+${arrivalSurgePct}%` : `${arrivalSurgePct}%`}`}
               icon={ActivityIcon}
-              color={impact?.surge_severity === 'Severe Surge' ? 'rose' : 'amber'}
-              badge={impact?.surge_severity || 'Nominal'}
+              color={impact?.surge_severity === 'Critical' ? 'rose' : impact?.surge_severity === 'Moderate' ? 'amber' : 'emerald'}
+              badge={impact?.surge_severity || 'Normal'}
               badgeType={
-                impact?.surge_severity === 'Severe Surge'
+                impact?.surge_severity === 'Critical'
                   ? 'danger'
-                  : impact?.surge_severity === 'Moderate Surge'
+                  : impact?.surge_severity === 'Moderate'
                   ? 'warning'
                   : 'success'
               }

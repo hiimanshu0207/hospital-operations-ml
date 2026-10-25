@@ -108,10 +108,15 @@
 - [x] Fixed operational stress index threshold scaling bug in `OverviewTab.jsx` (adjusted to 0–100 scale)
 - [x] Executed complete test suite (115/115 passed), frontend lint (`oxlint` 0 errors/warnings), and production build (`vite build` succeeded)
 
-### Day 10 — Interactive Features
-- [ ] Date/department filters
-- [ ] Scenario comparison tool
-- [ ] Export functionality (CSV/PDF)
+### Day 10 — Deployment Readiness, Dashboard Polish, and Major Project Demonstration
+- [x] Code-level audit and full walkthrough across all six dashboard views (Overview, Departments, Demand Forecast, Wait-Time Predictor, What-If Simulation, Staff Allocation)
+- [x] Verified loading, success, empty-data, invalid-input, API-error, and missing-model states
+- [x] Tested desktop, tablet, and mobile responsiveness; resolved UI status badge mismatches in `SimulationTab.jsx` and `AllocationTab.jsx`
+- [x] Removed non-standard `xs:` class in `Navbar.jsx` ensuring permanent mobile status visibility
+- [x] Audited dependency manifests (`requirements.txt` updated with `scipy` and `joblib`, `package.json`), `.env.example`, and CORS/proxy configs
+- [x] Updated `README.md` with detailed practical demonstration walkthrough, architecture diagrams, benchmark tables, and production deployment guide
+- [x] Updated `docs/ARCHITECTURE.md` with complete multi-tier Mermaid diagrams and optimization formulations
+- [x] Full test suite (115/115 passed), oxlint (0 errors/warnings), and Vite production build verified
 
 ### Day 11 — Advanced Visualizations
 - [ ] Heatmaps, trend lines, distribution plots
